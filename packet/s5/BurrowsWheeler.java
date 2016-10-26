@@ -8,12 +8,30 @@ public class BurrowsWheeler {
 
 	// apply Burrows-Wheeler transform, reading from standard input and writing to standard output
 	public static void transform(BinaryIn in, BinaryOut out) {
-	    // FILL IN
+		String input = in.readString();
+		CircularSuffixArray circularSuffixArray = new CircularSuffixArray(input);
+
+		for (int i = 0; i < circularSuffixArray.length(); i++){
+			if(circularSuffixArray.index(i) == 0){
+				out.write(i);
+				break;
+			}
+		}
+
+		for(int i = 0; i < circularSuffixArray.length(); i++){
+			int index = circularSuffixArray.index(i);
+			if(index == 0){
+				out.write(input.charAt(input.length() - 1));
+			}else{
+				out.write(input.charAt(index));
+			}
+		}
+
 	}
 	
 	// apply Burrows-Wheeler inverse transform, reading from standard input and writing to standard output
 	public static void inverseTransform(BinaryIn in, BinaryOut out) {
-	    // FILL IN
+
 	}
 
 	public static void main(String[] args) {
