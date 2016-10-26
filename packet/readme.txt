@@ -5,13 +5,17 @@
  *
  *  Partner Name: Raquelita Rós Anguilar       
  *  Partner Login ID:    raquelita15@ru.is  
- *  Partner Group#:    HMV
+ *  Partner Group#:         HMV
  *
  *  Hours to complete assignment (optional):
  *
  ******************************************************************************/
 
+                         !!!!!!!NOTE!!!!!!!
 
+The following is an Piazza-answer from the teacher:
+,,Það er heimilt að nota þá klasa sem eru notaðir í algs4 forritum, þ.m.t.
+Comparator StringBuilder og Character. Ekki hins vegar List eða ArrayList."
 
 /******************************************************************************
  *  List in table format which input files you used to test your program.
@@ -71,6 +75,8 @@ Huffman expand()                      N                  N
  *  classmates, and friends) and attribute them by name.
  *****************************************************************************/
 
+Raquelita discussed this project with a friend Mr. Carbrera who helped
+her to understand this algorithm.
 
 /******************************************************************************
  *  Describe any serious problems you encountered.                    

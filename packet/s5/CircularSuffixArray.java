@@ -3,13 +3,15 @@
 // Magnus M. Halldorsson
 package s5;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Comparator;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.StdOut;
 
+
 public class CircularSuffixArray {
 
-    private List<StateContainer> mSortedSuffixes;
+    private StateContainer[] mSortedSuffixes;
 
     public CircularSuffixArray(String input) {
 
@@ -21,10 +23,10 @@ public class CircularSuffixArray {
         StringBuilder builder = new StringBuilder(input);
         int length = builder.length();
 
-        mSortedSuffixes = new ArrayList<StateContainer>();
+        mSortedSuffixes = new StateContainer[length];
         for (int i = 0; i < length; i++) {
             // add the original string and shift it
-            mSortedSuffixes.add(new StateContainer(builder.toString(), i));
+            mSortedSuffixes[i] = new StateContainer(builder.toString(), i);
 
             // take the first character
             charAt0 = builder.charAt(0);
@@ -38,7 +40,7 @@ public class CircularSuffixArray {
                 return o1.mShiftedSuffix.compareTo(o2.mShiftedSuffix);
             }
         };
-        Collections.sort(mSortedSuffixes, comparator);
+        Arrays.sort(mSortedSuffixes, comparator);
     }
 
     /*******************************************************
@@ -46,7 +48,7 @@ public class CircularSuffixArray {
      *******************************************************/
     public int length() {
         // lenght of the list
-        return mSortedSuffixes.size();
+        return mSortedSuffixes.length;
     }
 
     /**
@@ -61,7 +63,7 @@ public class CircularSuffixArray {
         if(i < 0 || i >= length()){
             throw new IndexOutOfBoundsException();
         }
-        return mSortedSuffixes.get(i).mOriginalPosition;
+        return mSortedSuffixes[i].mOriginalPosition;
     }
 
     private class StateContainer{

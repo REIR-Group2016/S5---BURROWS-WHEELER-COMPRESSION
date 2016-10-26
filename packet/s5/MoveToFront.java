@@ -1,11 +1,9 @@
 // Move-to-front
 // 11 October 2016, Magnus M. Halldorsson
-// Mooshak #44
+// Mooshak #224
 package s5;
 
 import edu.princeton.cs.algs4.*;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MoveToFront {
 
@@ -17,10 +15,10 @@ public class MoveToFront {
 	 *************************************************************************/
 	public static void encode(BinaryIn in, BinaryOut out) {
 		// create a list from 0-256
-		List<Character> sequence = new ArrayList<Character>();
+		char[] sequence = new char[NUMB_OF_CHARS];
 		for (char i = 0; i < NUMB_OF_CHARS; i++){
 			// add value to the index
-			sequence.add(i, i);
+			sequence[i] = i;
 		}
 
 		// Now, read in each 8-bit character c from standard
@@ -30,18 +28,20 @@ public class MoveToFront {
 			char c = in.readChar();
 			char index = 0;
 			// look through the sequence until we find the i-th char
-			for (char i = 0; i < sequence.size(); i++, index++) {
-				if (c == sequence.get(i)){
+			for (char i = 0; i < sequence.length; i++, index++) {
+				if (c == sequence[i]){
 					index = i;
 					break;
 				}
 			}
 			// The index of the character
-			Character character = sequence.get(index);
+			char character = sequence[index];
 			// remove the character from the list
-			sequence.remove(index);
+			for (int i = index; i > 0; i-- ){
+				sequence[i] = sequence[i - 1];
+			}
 			// put the character to the front
-			sequence.add(0, character);
+			sequence[0] = character;
 			// Write it out
 			out.write(index);
 		}
@@ -52,20 +52,22 @@ public class MoveToFront {
 	 *************************************************************************/
 	public static void decode(BinaryIn in, BinaryOut out) {
 		// create a list from 0-256
-		List<Character> sequence = new ArrayList<Character>();
-		for (char i = 0; i < NUMB_OF_CHARS; i++) {
+		char[] sequence = new char[NUMB_OF_CHARS];
+		for (char i = 0; i < NUMB_OF_CHARS; i++){
 			// add value to the index
-			sequence.add(i, i);
+			sequence[i] = i;
 		}
 		while (!in.isEmpty()) {
 			char c = in.readChar();
-            Character character = sequence.get(c);
+			char character = sequence[c];
             // Write the character
             out.write(character);
-            // remove it from the list
-            sequence.remove(c);
-            // add it to the front in index 0
-            sequence.add(0, character);
+			// remove the character from the list
+			for (int i = c; i > 0; i-- ){
+				sequence[i] = sequence[i - 1];
+			}
+			// put the character to the front
+			sequence[0] = character;
 		}
 	}
 
