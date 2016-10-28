@@ -75,13 +75,15 @@ Huffman expand()                      N                  N
  *  classmates, and friends) and attribute them by name.
  *****************************************************************************/
 
-Raquelita discussed this project with a friend Mr. Carbrera who helped
-her to understand this algorithm.
+Raquelita discussed this project with a friend Mr. Cabrera who helped
+her to understand this algorithm and forced her to answer questions regarding this
+project.
 
 /******************************************************************************
  *  Describe any serious problems you encountered.                    
  *****************************************************************************/
 
+The restriction to use only algs4.jar
 
 
 /******************************************************************************
@@ -90,7 +92,8 @@ her to understand this algorithm.
  *  sentence explaining what each of you contributed.
  *****************************************************************************/
 
-
+Me and my partner did together the BurrowsWheeler class.
+Raquelita implemented CSA and MTF
 
 /******************************************************************************
  *  List any other comments here. Feel free to provide any feedback   
