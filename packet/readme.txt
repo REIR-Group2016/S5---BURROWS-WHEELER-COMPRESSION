@@ -28,7 +28,9 @@ Comparator StringBuilder og Character. Ekki hins vegar List eða ArrayList."
 
 File     Encoding Time    Decoding time      Compression ratio
 ------------------------------------------------------------------------
-
+amendments.txt	0,200 sec	0,202 sec	17,9/5,41 (kilobytes) = 3,309
+alphanum.txt	0,005 sec	0,007 sec	36/77 = 0,46 (grew bigger!?)
+stars.txt	0,005sec	0,005 sec	13/9 = 1,444
 
 
 /******************************************************************************
@@ -38,6 +40,10 @@ File     Encoding Time    Decoding time      Compression ratio
  *  If you don't have pkzip, use 7zip and compress using zip format.
  *****************************************************************************/
 
+Our Compression Time:	See known bugs/limitations
+Our Compression Ratio:	See known bugs/limitations
+pkzip Compression Time:	0,301 sec (I could hardly react fast with my stopwatch, blink and you will miss it)
+pkzip Compression Ratio: 416/175 = 2,37
 
 /******************************************************************************
  *  Give the order of growth of the running time of each of the 6
@@ -51,10 +57,10 @@ File     Encoding Time    Decoding time      Compression ratio
 
                                       typical            worst
 ---------------------------------------------------------------------
-BurrowsWheeler transform()
-BurrowsWheeler inverseTransform()
-MoveToFront encode()
-MoveToFront decode()
+BurrowsWheeler transform()	      3N + N log N	3N + N log N
+BurrowsWheeler inverseTransform()     N^2 + 2N log N	N^2 + 2N log N
+MoveToFront encode()		      256N		256 N
+MoveToFront decode()		      256N		256 N
 Huffman compress()                    N + R log R        N + R log R
 Huffman expand()                      N                  N
 
@@ -66,7 +72,7 @@ Huffman expand()                      N                  N
  *  Known bugs / limitations.
  *****************************************************************************/
 
-
+Runs out of heap space for larger text files such as aesop and mobydick.
 
 /******************************************************************************
  *  Describe whatever help (if any) that you received.
@@ -92,6 +98,7 @@ The restriction to use only algs4.jar
  *  sentence explaining what each of you contributed.
  *****************************************************************************/
 
+I did testing and time  complexity.
 Me and my partner did together the BurrowsWheeler class.
 Raquelita implemented CSA and MTF
 
